@@ -1,3 +1,4 @@
+
 <mxfile host="app.diagrams.net">
   <diagram name="Daily Transfer Files DFD">
     <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10">
@@ -89,3 +90,146 @@
           style="ellipse;"
           vertex="1"
           parent="1">
+          <mxGeometry x="930" y="240" width="90" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lifelite"
+          value="LifeLite DB"
+          style="shape=datastore;fillColor=#fff2cc;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="1080" y="250" width="100" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="docPrep"
+          value="Prepare&#10;Document Data"
+          style="ellipse;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="900" y="420" width="90" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="charge"
+          value="Generate Product&#10;Charge File"
+          style="ellipse;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="1050" y="420" width="100" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sftpOutbound"
+          value="On-Prem SFTP&#10;Outbound"
+          style="shape=datastore;fillColor=#fff2cc;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="730" y="430" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- SV -->
+
+        <mxCell id="svProcess"
+          value="SV Daily&#10;Ingest"
+          style="ellipse;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="1280" y="240" width="90" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sv"
+          value="SV"
+          style="shape=datastore;fillColor=#fff2cc;"
+          vertex="1"
+          parent="1">
+          <mxGeometry x="1420" y="250" width="70" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- EDGES -->
+
+        <mxCell id="e1" value="Inbound CSV Files"
+          edge="1" parent="1"
+          source="platform" target="azureSftpIn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="MoveIT Transfer"
+          edge="1" parent="1"
+          source="azureSftpIn" target="moveitIn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" value="CSV Files"
+          edge="1" parent="1"
+          source="moveitIn" target="sftpInbound">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="Consume Files"
+          edge="1" parent="1"
+          source="sftpInbound" target="emerge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" value="Load Data"
+          edge="1" parent="1"
+          source="emerge" target="lifelite">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" value="Daily Data"
+          edge="1" parent="1"
+          source="lifelite" target="svProcess">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" value="Ingest"
+          edge="1" parent="1"
+          source="svProcess" target="sv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" value="Document Data"
+          edge="1" parent="1"
+          source="lifelite" target="docPrep">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e9" value="Outbound Files"
+          edge="1" parent="1"
+          source="docPrep" target="sftpOutbound">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e10" value="MoveIT Transfer"
+          edge="1" parent="1"
+          source="sftpOutbound" target="docs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e11" value="SmartComms Request"
+          edge="1" parent="1"
+          source="docs" target="smartcomms">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" value="PDF Documents"
+          edge="1" parent="1"
+          source="smartcomms" target="platform">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e13" value="Product Charge Data"
+          edge="1" parent="1"
+          source="lifelite" target="charge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e14" value="Product Charge CSV"
+          edge="1" parent="1"
+          source="charge" target="platform">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
