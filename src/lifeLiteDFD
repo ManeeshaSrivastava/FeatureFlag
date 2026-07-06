@@ -1,0 +1,188 @@
+
+<mxfile host="app.diagrams.net">
+  <diagram name="Level 2 Servicing DFD">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10">
+      <root>
+
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- External -->
+
+        <mxCell id="cust"
+          value="Customer / Adviser"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="bond"
+          value="Bond Provider System"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+          vertex="1" parent="1">
+          <mxGeometry x="940" y="220" width="170" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="adv"
+          value="Adviser Systems"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="940" y="100" width="170" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pay"
+          value="BACS / Faster Payments"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="940" y="360" width="170" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="smart"
+          value="SmartComms"
+          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5c6e0;strokeColor=#b85490;"
+          vertex="1" parent="1">
+          <mxGeometry x="940" y="520" width="170" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Processes -->
+
+        <mxCell id="p1"
+          value="Validate Adviser Status"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="110" width="120" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p2"
+          value="Policy Servicing"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="230" width="120" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p3"
+          value="Process Charges"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="470" y="230" width="120" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p4"
+          value="Manage Assignment / Trust"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="230" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p5"
+          value="Payment Preparation"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="370" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="p6"
+          value="Generate / Route Documents"
+          style="ellipse;whiteSpace=wrap;html=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="520" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Data Stores -->
+
+        <mxCell id="d1"
+          value="Customer / Party Data"
+          style="shape=datastore;"
+          vertex="1" parent="1">
+          <mxGeometry x="280" y="650" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d2"
+          value="Cluster / Segment Data"
+          style="shape=datastore;"
+          vertex="1" parent="1">
+          <mxGeometry x="470" y="650" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d3"
+          value="Fund / Holdings Data"
+          style="shape=datastore;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="650" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Main Flows -->
+
+        <mxCell id="e1" edge="1" parent="1" source="cust" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="Servicing Request"
+          edge="1" parent="1" source="cust" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" value="Adviser Status / Authority"
+          edge="1" parent="1" source="adv" target="p1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="Validated Adviser Context"
+          edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5"
+          edge="1" parent="1" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6"
+          edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" value="Withdrawal / Charge / Assignment Instructions"
+          edge="1" parent="1" source="p4" target="bond">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" value="Policy Status / Outcomes"
+          edge="1" parent="1" source="bond" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e9" value="Settlement Requirement"
+          edge="1" parent="1" source="p3" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e10" value="Payment Instruction"
+          edge="1" parent="1" source="p5" target="pay">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e11" value="Payment Status"
+          edge="1" parent="1" source="pay" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" value="Document Trigger"
+          edge="1" parent="1" source="p2" target="p6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e13" value="Document Payload"
+          edge="1" parent="1" source="p6" target="smart">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e14" value="Generated Documents"
+          edge="1" parent="1" source="smart" target="cust">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
