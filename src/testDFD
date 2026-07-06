@@ -1,210 +1,91 @@
-
 <mxfile host="app.diagrams.net">
-  <diagram name="Enhanced Daily Transfer DFD">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1"
-      connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600"
-      pageHeight="900">
+  <diagram name="Daily Transfer Files DFD">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10">
       <root>
 
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
-        <!-- External Entities -->
-
-        <mxCell id="src"
-          value="Source Systems"
-          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
-          vertex="1"
-          parent="1">
-          <mxGeometry x="40" y="280" width="120" height="60" as="geometry"/>
-        </mxCell>
+        <!-- PLATFORM -->
 
         <mxCell id="platform"
           value="Platform"
-          style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+          style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
           vertex="1"
           parent="1">
-          <mxGeometry x="1230" y="280" width="120" height="60" as="geometry"/>
+          <mxGeometry x="20" y="250" width="140" height="80" as="geometry"/>
         </mxCell>
 
-        <!-- Data Stores -->
+        <!-- AZURE -->
 
-        <mxCell id="dailyStore"
-          value="Daily Data Repository"
-          style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;"
+        <mxCell id="azureBoundary"
+          value="LV Azure"
+          style="rounded=1;fillColor=#ccffff;strokeColor=#4aa3a3;"
           vertex="1"
           parent="1">
-          <mxGeometry x="350" y="120" width="160" height="70" as="geometry"/>
+          <mxGeometry x="220" y="40" width="380" height="550" as="geometry"/>
         </mxCell>
 
-        <mxCell id="docStore"
-          value="Document Repository"
-          style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;"
+        <mxCell id="azureSftpIn"
+          value="Azure SFTP&#10;Inbound"
+          style="shape=datastore;fillColor=#fff2cc;"
           vertex="1"
           parent="1">
-          <mxGeometry x="350" y="520" width="160" height="70" as="geometry"/>
+          <mxGeometry x="270" y="250" width="120" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Processes -->
-
-        <mxCell id="p1"
-          value="Extract Data"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="moveitIn"
+          value="MoveIT"
+          style="ellipse;"
           vertex="1"
           parent="1">
-          <mxGeometry x="200" y="280" width="90" height="90" as="geometry"/>
+          <mxGeometry x="450" y="240" width="80" height="80" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p2"
-          value="Process Daily Data"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="azureSftpOut"
+          value="Azure SFTP&#10;Outbound"
+          style="shape=datastore;fillColor=#fff2cc;"
           vertex="1"
           parent="1">
-          <mxGeometry x="560" y="280" width="100" height="100" as="geometry"/>
+          <mxGeometry x="270" y="420" width="120" height="60" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p3"
-          value="Generate XML / CSV Files"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="docs"
+          value="Generate&#10;Documents"
+          style="ellipse;"
           vertex="1"
           parent="1">
-          <mxGeometry x="760" y="130" width="110" height="110" as="geometry"/>
+          <mxGeometry x="430" y="410" width="100" height="100" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p4"
-          value="Transfer Data"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="smartcomms"
+          value="SmartComms"
+          style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;"
           vertex="1"
           parent="1">
-          <mxGeometry x="980" y="130" width="100" height="100" as="geometry"/>
+          <mxGeometry x="520" y="430" width="100" height="50" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p5"
-          value="Read Document Files"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <!-- ON PREM -->
+
+        <mxCell id="onpremBoundary"
+          value="LV On-Prem"
+          style="rounded=1;fillColor=#eeeeee;strokeColor=#888888;"
           vertex="1"
           parent="1">
-          <mxGeometry x="560" y="520" width="100" height="100" as="geometry"/>
+          <mxGeometry x="680" y="40" width="500" height="550" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p6"
-          value="Generate Documents"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="sftpInbound"
+          value="On-Prem SFTP&#10;Inbound"
+          style="shape=datastore;fillColor=#fff2cc;"
           vertex="1"
           parent="1">
-          <mxGeometry x="760" y="520" width="100" height="100" as="geometry"/>
+          <mxGeometry x="730" y="250" width="140" height="60" as="geometry"/>
         </mxCell>
 
-        <mxCell id="p7"
-          value="Publish Documents"
-          style="ellipse;whiteSpace=wrap;html=1;"
+        <mxCell id="emerge"
+          value="eMerge&#10;Process Files"
+          style="ellipse;"
           vertex="1"
           parent="1">
-          <mxGeometry x="980" y="520" width="100" height="100" as="geometry"/>
-        </mxCell>
-
-        <!-- Flows -->
-
-        <mxCell id="e1"
-          value="Source Data"
-          edge="1"
-          parent="1"
-          source="src"
-          target="p1">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e2"
-          value="Extracted Records"
-          edge="1"
-          parent="1"
-          source="p1"
-          target="dailyStore">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e3"
-          value="Daily Data Set"
-          edge="1"
-          parent="1"
-          source="dailyStore"
-          target="p2">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e4"
-          value="Validated Data"
-          edge="1"
-          parent="1"
-          source="p2"
-          target="p3">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e5"
-          value="XML / CSV Files"
-          edge="1"
-          parent="1"
-          source="p3"
-          target="p4">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e6"
-          value="Transfer Files"
-          edge="1"
-          parent="1"
-          source="p4"
-          target="platform">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e7"
-          value="Templates"
-          edge="1"
-          parent="1"
-          source="docStore"
-          target="p5">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e8"
-          value="Document Content"
-          edge="1"
-          parent="1"
-          source="p5"
-          target="p6">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e9"
-          value="Customer / Policy Data"
-          edge="1"
-          parent="1"
-          source="p2"
-          target="p6">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e10"
-          value="PDF Documents"
-          edge="1"
-          parent="1"
-          source="p6"
-          target="p7">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="e11"
-          value="PDFs"
-          edge="1"
-          parent="1"
-          source="p7"
-          target="platform">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
